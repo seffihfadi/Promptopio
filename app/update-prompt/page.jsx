@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 import Form from "@components/Form"
 
 const UpdatePrompt = () => {
   const router = useRouter()
+  const { data: session } = useSession()
+  if (!!!session) return router.push('/')
   const searchParams = useSearchParams()
   const promptId = searchParams.get("id")
 

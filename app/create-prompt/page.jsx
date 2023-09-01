@@ -6,9 +6,12 @@ import { useRouter } from "next/navigation"
 
 import Form from "@components/Form"
 
+
 const CreatePrompt = () => {
   const router = useRouter()
   const {data: session} = useSession()
+  if (!!!session) return router.push('/')
+  console.log('session create', session)
   const [submiting, setSubmiting] = useState(false)
   const [postForm, setPostForm] = useState({
     prompt: '',
@@ -43,7 +46,6 @@ const CreatePrompt = () => {
     }
 
   }
-
 
   return (
     <Form 
