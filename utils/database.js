@@ -2,7 +2,6 @@ import mongoose from "mongoose"
 
 let isConnected = false
 
-
 export const connectToDB = async () => {
   mongoose.set('strictQuery')
   if (isConnected) {
@@ -12,7 +11,7 @@ export const connectToDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI , {
       dbName: 'promptopio',
-      useNewUrlParcer: true,
+      //useNewUrlParcer: true,
       useUnifiedTopology: true
     })
     isConnected = true

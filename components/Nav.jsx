@@ -3,11 +3,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { SignIn, SignOut, getProviders, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut, getProviders, useSession } from 'next-auth/react'
 
 const Nav = () => {
-  const isLoggedIn = true
-  
+  const {data: session} = useSession()
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -30,21 +29,22 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">Promptopia</p>
+        <p className="logo_text">Promptopio</p>
       </Link>
 
       {/* PC Navigation */}
       <div className='sm:flex hidden'>
-        {isLoggedIn ? 
+        {session?.user ? 
         ( <div className="flex gap-3">
           <Link className="black_btn" href='/create-prompt'>Create Prompt</Link>
           <button className="outline_btn" onClick={signOut}>Sing Out</button>
           <Link href='/profile'>
             <Image 
-              src='/assets/images/promptopio.png' 
+              src={session?.user.image}
               width={36}
               height={36}
               alt="profile img"
+              className="rounded-full"
             />
           </Link>
         </div> ) 
@@ -70,13 +70,13 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
-        {isLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
-              src='/assets/images/promptopio.png' 
+              src={session?.user.image}
+              className="rounded-full"
               width={37}
               height={37}
-              className='rounded-full'
               alt='profile'
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
