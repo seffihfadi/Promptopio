@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 
 const Form = ({ type, form, setForm, submitting, handleSubmit }) => {
   return (
@@ -60,7 +60,7 @@ const Form = ({ type, form, setForm, submitting, handleSubmit }) => {
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

@@ -7,13 +7,13 @@ import { signIn, signOut, getProviders, useSession } from 'next-auth/react'
 
 const Nav = () => {
   const {data: session} = useSession()
-  const [providers, setProviders] = useState(null);
-  const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [providers, setProviders] = useState(null)
+  const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
     (async () => {
-      const res = await getProviders();
-      setProviders(res);
+      const res = await getProviders()
+      setProviders(res)
     })()
   }, [])
 
@@ -37,7 +37,7 @@ const Nav = () => {
         {session?.user ? 
         ( <div className="flex gap-3">
           <Link className="black_btn" href='/create-prompt'>Create Prompt</Link>
-          <button className="outline_btn" onClick={signOut}>Sing Out</button>
+          <button className="outline_btn" onClick={signOut}>Sign Out</button>
           <Link href='/profile'>
             <Image 
               src={session?.user.image}
@@ -56,7 +56,7 @@ const Nav = () => {
                 type='button'
                 key={provider.name}
                 onClick={() => {
-                  signIn(provider.id);
+                  signIn(provider.id)
                 }}
                 className='black_btn'
               >
@@ -118,7 +118,7 @@ const Nav = () => {
                   type='button'
                   key={provider.name}
                   onClick={() => {
-                    signIn(provider.id);
+                    signIn(provider.id)
                   }}
                   className='black_btn'
                 >

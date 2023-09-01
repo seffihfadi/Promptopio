@@ -1,4 +1,4 @@
-import PromptCard from "./PromptCard";
+import PromptCard from "./PromptCard"
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
   return (
@@ -19,7 +19,7 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

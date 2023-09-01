@@ -10,9 +10,7 @@ const Home = () => {
           AI Powerd Prompts
         </span>
       </h1>
-      <p className="desc text-center">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati corrupti rerum nihil praesentium blanditiis iure optio maxime quod. Optio quos aspernatur doloribus, alias ad quidem minus aliquid impedit. Accusantium, numquam.
-      </p>
+      <p className="desc text-center">If you're tired of tedious and repetitive coding tasks and want to optimize your efficiency, you're in the right place. With the power of ChatGPT, you can streamline your workflow, reduce errors, and even gain insights on improving your code.</p>
       {/* feed  */}
       <Feed />
     </section>
